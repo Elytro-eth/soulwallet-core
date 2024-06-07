@@ -4,7 +4,7 @@ SoulWalletCore is a flexible and reusable smart contract wallet framework compli
 
 ## ⚠️ Disclaimer
 
-**The SoulWalletCore has not been audited and is provided as-is. It is not recommended for use in production environments.** Users and developers should exercise caution and use at their own risk.
+Although **SoulWalletCore has been audited (thanks to SlowMist)**, it is important to note that the functions provided by this library are highly flexible. Users and developers should exercise caution and use at their own risk.
 
 ## Features
 
