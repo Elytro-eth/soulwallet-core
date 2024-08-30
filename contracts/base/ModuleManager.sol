@@ -129,8 +129,7 @@ abstract contract ModuleManager is IModuleManager, Authority, ModuleManagerSnipp
             revert MODULE_NOT_EXISTS();
         }
         AccountStorage.layout().moduleSelectors[moduleAddress].clear();
-        (bool success,) =
-            moduleAddress.call{gas: 1000000 /* max to 1M gas */ }(abi.encodeWithSelector(IPluggable.DeInit.selector));
+        (bool success,) = moduleAddress.call(abi.encodeWithSelector(IPluggable.DeInit.selector));
         if (success) {
             emit ModuleUninstalled(moduleAddress);
         } else {

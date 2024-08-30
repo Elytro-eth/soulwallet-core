@@ -79,8 +79,7 @@ abstract contract ValidatorManager is Authority, IValidatorManager, ValidatorMan
         if (!AccountStorage.layout().validators.tryRemove(validator)) {
             revert VALIDATOR_NOT_EXISTS();
         }
-        (bool success,) =
-            validator.call{gas: 1000000 /* max to 1M gas */ }(abi.encodeWithSelector(IPluggable.DeInit.selector));
+        (bool success,) = validator.call(abi.encodeWithSelector(IPluggable.DeInit.selector));
         if (success) {
             emit ValidatorUninstalled(validator);
         } else {
