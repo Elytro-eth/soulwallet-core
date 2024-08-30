@@ -126,8 +126,7 @@ abstract contract HookManager is Authority, IHookManager, HookManagerSnippet {
             revert HOOK_NOT_EXISTS();
         }
 
-        (bool success,) =
-            hookAddress.call{gas: 1000000 /* max to 1M gas */ }(abi.encodeWithSelector(IPluggable.DeInit.selector));
+        (bool success,) = hookAddress.call(abi.encodeWithSelector(IPluggable.DeInit.selector));
 
         if (success) {
             emit HookUninstalled(hookAddress);
